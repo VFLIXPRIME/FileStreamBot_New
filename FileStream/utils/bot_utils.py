@@ -92,10 +92,6 @@ async def gen_link(_id):
     stream_link = f"{Server.URL}dl/{_id}"
     file_link = f"https://t.me/{FileStream.username}?start=file_{_id}"
 
-    # Create .strm file
-    strm_file_path = os.path.join(strm_directory, f"{file_name}.strm")
-    with open(strm_file_path, "w") as strm_file:
-        strm_file.write(stream_link)
 
     if "video" in mime_type:
         stream_text = LANG.STREAM_TEXT.format(file_name, file_size, stream_link, page_link, file_link)
@@ -115,6 +111,11 @@ async def gen_link(_id):
                 [InlineKeyboardButton("ᴄʟᴏsᴇ", callback_data="close")]
             ]
         )
+                # Create .strm file
+    strm_file_path = os.path.join(strm_directory, f"{file_name}.strm")
+    with open(strm_file_path, "w") as strm_file:
+        strm_file.write(stream_link)
+
     return reply_markup, stream_text
 
 #---------------------[ GEN STREAM LINKS FOR CHANNEL ]---------------------#
@@ -128,11 +129,6 @@ async def gen_linkx(m: Message, _id, name: list):
     page_link = f"{Server.URL}watch/{_id}"
     stream_link = f"{Server.URL}dl/{_id}"
     file_link = f"https://t.me/{FileStream.username}?start=file_{_id}"
-
-    # Create .strm file
-    strm_file_path = os.path.join(strm_directory, f"{file_name}.strm")
-    with open(strm_file_path, "w") as strm_file:
-        strm_file.write(stream_link)
 
     if "video" in mime_type:
         stream_text = LANG.STREAM_TEXT_X.format(file_name, file_size, stream_link, page_link)
@@ -148,6 +144,11 @@ async def gen_linkx(m: Message, _id, name: list):
                 [InlineKeyboardButton("ᴅᴏᴡɴʟᴏᴀᴅ", url=stream_link)]
             ]
         )
+                # Create .strm file
+    strm_file_path = os.path.join(strm_directory, f"{file_name}.strm")
+    with open(strm_file_path, "w") as strm_file:
+        strm_file.write(stream_link)
+
     return reply_markup, stream_text
 
 #---------------------[ USER BANNED ]---------------------#
