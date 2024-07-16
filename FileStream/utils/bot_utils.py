@@ -13,7 +13,7 @@ from typing import (
 )
 
 # Ensure the directory for .strm files exists
-strm_directory = "/opt/drive_bkp/STRM_BOT/"
+strm_directory = "/opt/jellyfin/STRM_BOT/"
 os.makedirs(strm_directory, exist_ok=True)
 db = Database(Telegram.DATABASE_URL, Telegram.SESSION_NAME)
 
